@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+
+$white-smoke: #FBF5F3;
+$vista-blue: #7F95D1;
+$pewter-blue: #8DAA9D;
+
+*, html {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+	background: url("./images/starry-background.jpg") no-repeat fixed center;
+	color: white;
+	height: 300vh;
+}
+
+.navbar {
+	background-color: rgba($vista-blue,0.4);
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 10px;
+}
+
+.navbar__title {
+	font-family: "Audiowide", cursive;
+	font-size: 3rem;
+	letter-spacing: 2.8px;
+	text-align: center;
+	text-shadow: 3px 3px 2px rgba(0, 0, 0, 1);
+}
+
+.navbar__links {
+	display: flex;
+	justify-content: center;
+}
+
+.navbar__link {
+	background-color: $vista-blue;
+	padding: 5px;
+	border-radius: 5px;
+	color: $white-smoke;
+	text-decoration: none;
+	margin: 3px 5px;
+	text-transform: uppercase;
+
+	&.selected {
+		background-color: $pewter-blue;
+	}
+
+	&:hover {
+		background-color: darken($vista-blue, 10%);
+	}
+}

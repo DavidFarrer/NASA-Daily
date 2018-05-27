@@ -1,8 +1,9 @@
 import React from "react";
+import HeaderNav from "./HeaderNav";
 
 const App = () => (
 	<div>
-		<p>NASA Daily</p>
+		<HeaderNav />
 	</div>
 );
 

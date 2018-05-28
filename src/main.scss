@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Audiowide');
+@import url('https://fonts.googleapis.com/css?family=Audiowide|Open+Sans:400,700');
 
 $white-smoke: #FBF5F3;
 $vista-blue: #7F95D1;
@@ -20,6 +20,7 @@ html {
 body {
 	background: url("./images/starry-background.jpg") no-repeat fixed center;
 	color: white;
+	font-family: "Open Sans", sans-serif;
 	height: 300vh;
 }
 
@@ -49,6 +50,7 @@ body {
 	padding: 5px;
 	border-radius: 5px;
 	color: $white-smoke;
+	font-weight: 700;
 	text-decoration: none;
 	margin: 3px 5px;
 	text-transform: uppercase;

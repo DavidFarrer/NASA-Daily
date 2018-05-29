@@ -21,7 +21,6 @@ body {
 	background: url("./images/starry-background.jpg") no-repeat fixed center;
 	color: white;
 	font-family: "Open Sans", sans-serif;
-	height: 300vh;
 }
 
 .navbar {
@@ -62,4 +61,34 @@ body {
 	&:hover {
 		background-color: darken($vista-blue, 10%);
 	}
+}
+
+.mainContent {
+	background-color: rgba(#FFFFFF, 0.2);
+	border-radius: 5px;
+	padding: 20px;
+	margin: 20px 10px;
+}
+
+.daily__title {
+	font-size: 32px;
+	text-align: center;
+
+}
+
+.daily__date {
+	font-size: 16px;
+	text-align: center;
+}
+
+.daily__image {
+	margin-top: 5px;
+	width: 100%;
+	border-radius: 5px;
+}
+
+.daily__description {
+	font-size: 18px;
+	font-weight: normal;
+	padding: 0 9px;
 }

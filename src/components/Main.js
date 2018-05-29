@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Daily from "./Daily";
 
 const Main = () => (
-	<main>
+	<main className="mainContent">
 		<Switch>
 			<Route exact path="/" component={Daily} />
 		</Switch>

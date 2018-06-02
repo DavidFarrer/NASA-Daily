@@ -1,5 +1,6 @@
 import React from "react";
 import defaultImage from "../images/default-nasa.png";
+import ErrorBoundary from "./ErrorBoundary";
 
 class Daily extends React.Component {
 	constructor(props) {
@@ -7,13 +8,17 @@ class Daily extends React.Component {
 		this.state = {
 			url: "",
 			dataLoaded: false,
-			imageLoaded: false
+			imageLoaded: false,
+			error: false
 		}
 		this.onImageLoad = this.onImageLoad.bind(this);
 	}
 	componentDidMount() {
 		fetch("https://api.nasa.gov/planetary/apod?api_key=gLolLfXqaaTb7xnWrJrTiCABn0IOEElx0PrmA8bc")
 		.then(response => {
+			if (!response.ok) {
+				throw Error(response.statusText);
+			}
 			return response.json();
 		}).then(json => {
 			this.setState({
@@ -23,9 +28,12 @@ class Daily extends React.Component {
 				date: json.date,
 				dataLoaded: true
 			});
+		}).catch((thrownError) => {
+			this.setState({
+				error: true
+			});
 		});
 	}
-
 	onImageLoad() {
 		this.setState({
 			imageLoaded: true
@@ -35,7 +43,7 @@ class Daily extends React.Component {
 	render() {
 		const dataLoaded = this.state.dataLoaded;
 		return (
-			<div>
+			<ErrorBoundary error={this.state.error}>
 				{dataLoaded ? (
 					<figure>
 						<h1 className="daily__title">{this.state.title}</h1>
@@ -53,7 +61,7 @@ class Daily extends React.Component {
 					<div className="loader"></div>
 				)}
 					<img className="hidden" onLoad={this.onImageLoad} src={this.state.url} />
-			</div>
+			</ErrorBoundary>
 		);
 	}
 }

@@ -100,7 +100,6 @@ body {
 .daily__title {
 	font-size: 32px;
 	text-align: center;
-
 }
 
 .daily__date {
@@ -111,15 +110,17 @@ body {
 .daily__imageContainer {
 	display: flex;
 	justify-content: center;
-}
-
-.daily__image {
-	margin: 5px auto;
 	max-height: 100vh;
-	max-width: 177.78vh;
-	height: 56.25vw;
 	width: 100%;
-	border-radius: 5px;	
+	margin: 10px 0;
+}
+.daily__image {
+	margin: 0 auto;
+	max-height: 100vh;
+	width: 100%;
+	object-fit: contain;
+	border-radius: 5px;
+	overflow: hidden;
 }
 
 .daily__description {
@@ -132,4 +133,8 @@ body {
 	text-align: center;
 	font-size: 2rem;
 	font-weight: bold;
+}
+
+.nearEarth__title {
+	text-align: center;
 }

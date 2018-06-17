@@ -21,12 +21,31 @@ class NearEarth extends React.Component {
 			});
 		})
 	}
+	renderNearEarthObjects(nearEarthObjects) {
+		console.log(nearEarthObjects);
+		return (
+			<ul>
+				{
+					nearEarthObjects.map(nearEarthObject => {
+						return (
+							<li key={nearEarthObject.neo_reference_id} className="nearEarth__object">
+								{nearEarthObject.name}
+							</li>
+						);
+					})
+				}
+			</ul>
+		);
+	}
 	render() {
 		return (
 			<div>
 				<h1 className="nearEarth__title">Near-Earth Objects</h1>
 				{this.state.dataLoaded ? (
-					<h3>{this.state.date}</h3>
+					<div>
+						<h3 className="nearEarth__date">{this.state.date}</h3>
+						{this.renderNearEarthObjects(this.state.nearEarthObjects)}
+					</div>
 				) : (
 					<div className="loader"></div>
 				)}

@@ -59,11 +59,6 @@ class Daily extends React.Component {
 						{this.renderLoader()}
 						<div className={this.state.mediaLoaded ? "daily__videoWrapper" : "hidden"}>
 							<iframe className="daily__video" src={this.state.url} onLoad={this.onMediaLoad}></iframe>
-							{this.state.imageLoaded ? (
-								<p>LOADED</p>
-							) : (
-								<p>NOT LOADED</p>
-							)}
 						</div>
 					</div>
 				);

@@ -157,3 +157,13 @@ body {
 .nearEarth__date {
 	text-align: center;
 }
+
+.nearEarth__object {
+	list-style-type: none;
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px 0px $vista-blue;
+	background-color: rgba(white, 0.2);
+	margin: 10px;
+}

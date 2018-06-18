@@ -12,8 +12,17 @@ class NearEarth extends React.Component {
 		.then(response => {
 			return response.json();
 		}).then(json => {
-			const nearEarthObjects = json.near_earth_objects[Object.keys(json.near_earth_objects)[0]];
-			console.log(nearEarthObjects);
+			const nearEarthObjectsRaw = json.near_earth_objects[Object.keys(json.near_earth_objects)[0]];
+			const nearEarthObjects = nearEarthObjectsRaw.map(nearEarthObject => {
+				return {
+					id: nearEarthObject.neo_reference_id,
+					name: nearEarthObject.name,
+					absoluteMagnitude: nearEarthObject.absolute_magnitude_h,
+					hazardous: nearEarthObject.is_potentially_hazardous_asteroid,
+					kilometersPerSecond: nearEarthObject.close_approach_data[0].relative_velocity.kilometers_per_second,
+					missAstronomicalUnits: nearEarthObject.close_approach_data[0].miss_distance.astronomical
+				}
+			});
 			this.setState({
 				date: Object.keys(json.near_earth_objects)[0],
 				nearEarthObjects,
@@ -28,8 +37,9 @@ class NearEarth extends React.Component {
 				{
 					nearEarthObjects.map(nearEarthObject => {
 						return (
-							<li key={nearEarthObject.neo_reference_id} className="nearEarth__object">
+							<li key={nearEarthObject.id} className="nearEarth__object">
 								{nearEarthObject.name}
+								{nearEarthObject.missAstronomicalUnits}
 							</li>
 						);
 					})

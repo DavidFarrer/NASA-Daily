@@ -39,7 +39,8 @@ class NearEarth extends React.Component {
 						return (
 							<li key={nearEarthObject.id} className="nearEarth__object">
 								{nearEarthObject.name}
-								<p className="nearEarth__distance">Distance of Pass: {(+nearEarthObject.missAstronomicalUnits).toFixed(2)}AU</p>
+								<p className="nearEarth__distance">Distance of Pass: {(+nearEarthObject.missAstronomicalUnits).toFixed(2)} AU</p>
+								<p className="nearEarth__speed">Speed: {nearEarthObject.kilometersPerSecond} km/s</p>
 							</li>
 						);
 					})

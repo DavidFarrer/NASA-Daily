@@ -14,8 +14,10 @@ class NearEarth extends React.Component {
 		}).then(json => {
 			const nearEarthObjectsRaw = json.near_earth_objects[Object.keys(json.near_earth_objects)[0]];
 			const nearEarthObjects = nearEarthObjectsRaw.map(nearEarthObject => {
+				console.log(nearEarthObject);
 				return {
 					id: nearEarthObject.neo_reference_id,
+					link: nearEarthObject.nasa_jpl_url,
 					name: nearEarthObject.name,
 					absoluteMagnitude: nearEarthObject.absolute_magnitude_h,
 					hazardous: nearEarthObject.is_potentially_hazardous_asteroid,
@@ -38,10 +40,10 @@ class NearEarth extends React.Component {
 					nearEarthObjects.map(nearEarthObject => {
 						return (
 							<li key={nearEarthObject.id} className="nearEarth__object">
-								{nearEarthObject.name}
+								<a href={nearEarthObject.link} target="_blank" className="nearEarth__link">{nearEarthObject.name}</a>
 								<p className="nearEarth__distance">Distance of Pass: {(+nearEarthObject.missAstronomicalUnits).toFixed(2)} AU</p>
-								<p className="nearEarth__speed">Speed: {nearEarthObject.kilometersPerSecond} km/s</p>
-								<p className="nearEarth__hazardous">Hazardous: {nearEarthObject.hazardous}</p>
+								<p className="nearEarth__speed">Speed: {(+nearEarthObject.kilometersPerSecond).toFixed(2)} km/s</p>
+								<p className="nearEarth__hazardous">Hazardous: {nearEarthObject.hazardous.toString()}</p>
 							</li>
 						);
 					})
